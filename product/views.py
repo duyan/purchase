@@ -11,7 +11,6 @@ from django.utils import simplejson
 from StringIO import StringIO
 
 def add_new_product_ext( request ) :
-    #print request
     full_name = request.POST['full_name']
     display_name = request.POST['display_name']
     category = request.POST['category']
@@ -72,7 +71,6 @@ def list_product_ext( request ) :
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-    # print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 
@@ -93,11 +91,9 @@ def list_price_ext( request ) :
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-    # print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 def add_price_ext( request ) :
-    #print request
     discountprice = request.POST['discountprice']
     regularprice = request.POST['regularprice']
     productcode = request.POST['productcode']
@@ -126,11 +122,9 @@ def add_price_ext( request ) :
         result['errors'] = ''
         result['text'] = ''
         result['success'] = True
-    #print result
     return HttpResponse( simplejson.dumps(result), mimetype = 'text/javascript;' )
 
 def del_price_ext( request ) :
-    #print request
     productcode = request.POST['productcode']
     departcode = request.POST['departcode']
     getSingleLog().info('product price deleted, departcode:%s,productcode:%s',
@@ -146,7 +140,6 @@ def del_price_ext( request ) :
     return HttpResponse( simplejson.dumps(result), mimetype = 'text/html;' )
 
 def update_product_ext( request ) :
-    #print request
     objcode = request.POST['code']
     full_name = request.POST['full_name']
     display_name = request.POST['display_name']

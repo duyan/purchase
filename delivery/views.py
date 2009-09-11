@@ -12,7 +12,6 @@ from django.utils import simplejson
 from param.views import *
 
 def add_new_delivery_ext( request ) :
-    #print request
     postfee = request.POST['postfee']
     transportfee = request.POST['transportfee']
     destination = request.POST['destination']
@@ -79,7 +78,6 @@ def list_delivery_ext( request ) :
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-    # print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 def delete_delivery_ext( request ) :
@@ -126,11 +124,9 @@ def list_items_ext( request ) :
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-    # print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 def update_delivery_ext( request ) :
-    #print request
     date = request.POST['date']
     branch = request.POST['branch']
     postfee = request.POST['postfee']

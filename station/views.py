@@ -8,7 +8,6 @@ from django.http import HttpResponse
 from django.utils import simplejson
 
 def add_new_station_ext( request ) :
-    #print request
     full_name = request.POST['full_name']
     display_name = request.POST['display_name']
     station_type = request.POST['stationtype']
@@ -30,7 +29,6 @@ def add_new_station_ext( request ) :
     return HttpResponse( simplejson.dumps(result), mimetype = 'text/javascript;' )
 
 def list_station_ext( request ):
-#    print request
     station_type = request.POST['station_type']
     getSingleLog().info('station listed, station_type:%s', station_type)
 
@@ -51,7 +49,6 @@ def list_station_ext( request ):
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-#    print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 def delete_station_ext( request ) :
@@ -73,7 +70,6 @@ def delete_station_ext( request ) :
     return HttpResponse( simplejson.dumps(result), mimetype = 'text/javascript;' )
 
 def update_station_ext( request ) :
-    #print request
     objcode = request.POST['code']
     full_name = request.POST['full_name']
     display_name = request.POST['display_name']

@@ -54,7 +54,6 @@ def list_depart_ext( request ) :
     data = {}
     data['total'] = results.count()
     data['root'] = contents
-#    print simplejson.dumps(data)
     return HttpResponse( simplejson.dumps(data), mimetype = 'text/javascript;' )
 
 
