@@ -24,7 +24,7 @@ def get_stationtype_list( request ) :
     root_name = 'root'
     data = '{"total": %s, "%s": %s}' % \
            ( results.count(), root_name, serializers.serialize('json', results, fields=('code','display_name')) )
-    return HttpResponse( data, mimetype = 'text/javascript;' )
+    return HttpResponse(data, mimetype = 'text/javascript;')
 
 def get_category_list( request ) :
     results = Category.objects.all()
